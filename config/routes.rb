@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the P_vote resource:
+  # CREATE
+  get "/p_votes/new", :controller => "p_votes", :action => "new"
+  post "/create_p_vote", :controller => "p_votes", :action => "create"
+
+  # READ
+  get "/p_votes", :controller => "p_votes", :action => "index"
+  get "/p_votes/:id", :controller => "p_votes", :action => "show"
+
+  # UPDATE
+  get "/p_votes/:id/edit", :controller => "p_votes", :action => "edit"
+  post "/update_p_vote/:id", :controller => "p_votes", :action => "update"
+
+  # DELETE
+  get "/delete_p_vote/:id", :controller => "p_votes", :action => "destroy"
+  #------------------------------
+
   # Routes for the Comment resource:
   # CREATE
   get "/comments/new", :controller => "comments", :action => "new"
