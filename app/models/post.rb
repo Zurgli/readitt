@@ -1,6 +1,9 @@
 class Post < ApplicationRecord
   # Direct associations
 
+  has_many   :comments,
+             :dependent => :destroy
+
   belongs_to :topic,
              :counter_cache => true
 
