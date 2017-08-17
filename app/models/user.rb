@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :posts,
+             :dependent => :nullify
+
   has_many   :subscriptions,
              :dependent => :destroy
 
