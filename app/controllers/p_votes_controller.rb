@@ -1,4 +1,14 @@
 class PVotesController < ApplicationController
+  before_action :current_user_must_be_p_vote_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_p_vote_user
+    p_vote = PVote.find(params[:id])
+
+    unless current_user == p_vote.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @p_votes = PVote.all
 
