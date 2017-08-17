@@ -10,7 +10,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def index
-    @subscriptions = Subscription.all
+    @subscriptions = current_user.subscriptions.page(params[:page]).per(10)
 
     render("subscriptions/index.html.erb")
   end
