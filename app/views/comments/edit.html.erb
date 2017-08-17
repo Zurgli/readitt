@@ -27,14 +27,8 @@
         <textarea id="body" name="body" placeholder="Body" class="form-control" rows="3"><%= @comment.body %></textarea>
       </div>
 
-      <!-- Label and input for user_id -->
-      <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
-
-        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :username, @comment.user_id), :class => "form-control") %>
-      </div>
+      
+      
 
       <!-- Label and input for post_id -->
       <div class="form-group">
