@@ -19,7 +19,7 @@
       <tr>
         <td><%= p_vote.up %></td>
         <td><%= p_vote.user.username %></td>
-        <td><%= p_vote.post_id %></td>
+        <td><%= p_vote.post.created_at %></td>
         <td>
           <a href="/p_votes/<%= p_vote.id %>" class="btn btn-primary">Show</a>
           <a href="/p_votes/<%= p_vote.id %>/edit" class="btn btn-warning">Edit</a>
