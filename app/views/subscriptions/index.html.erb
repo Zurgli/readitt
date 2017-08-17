@@ -20,8 +20,11 @@
         <td><%= subscription.topic.name %></td>
         <td>
           <a href="/subscriptions/<%= subscription.id %>" class="btn btn-primary">Show</a>
-          <a href="/subscriptions/<%= subscription.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_subscription/<%= subscription.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == subscription.user %>
+            <a href="/subscriptions/<%= subscription.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_subscription/<%= subscription.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
