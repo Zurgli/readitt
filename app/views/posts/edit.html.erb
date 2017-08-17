@@ -33,7 +33,7 @@
           Topic
         </label>
 
-        <input type="text" id="topic_id" name="topic_id" placeholder="Topic" class="form-control" value="<%= @post.topic_id %>">
+        <%= select_tag(:topic_id, options_from_collection_for_select(Topic.all, :id, :name, @post.topic_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for body -->
