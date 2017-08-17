@@ -50,8 +50,6 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-
-    @post.user_id = params[:user_id]
     @post.topic_id = params[:topic_id]
     @post.body = params[:body]
     @post.title = params[:title]
