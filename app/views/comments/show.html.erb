@@ -29,3 +29,34 @@
     </div>
   </div>
 </div>
+
+<!-- A Comment has many c_votes -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        C Votes
+      </li>
+
+      <% @comment.c_votes.each do |c_vote| %>
+        <li class="list-group-item">
+          <a href="/c_votes/<%= c_vote.id %>">
+            <%= c_vote.up %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/c_votes/<%= c_vote.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/c_votes/<%= c_vote.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_c_vote/<%= c_vote.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

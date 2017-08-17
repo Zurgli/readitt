@@ -23,3 +23,189 @@
     </div>
   </div>
 </div>
+
+<!-- A User has many subscriptions -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Subscriptions
+      </li>
+
+      <% @user.subscriptions.each do |subscription| %>
+        <li class="list-group-item">
+          <a href="/subscriptions/<%= subscription.id %>">
+            <%= subscription.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/subscriptions/<%= subscription.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/subscriptions/<%= subscription.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_subscription/<%= subscription.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many posts -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Posts
+      </li>
+
+      <% @user.posts.each do |post| %>
+        <li class="list-group-item">
+          <a href="/posts/<%= post.id %>">
+            <%= post.created_at %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/posts/<%= post.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/posts/<%= post.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_post/<%= post.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many comments -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Comments
+      </li>
+
+      <% @user.comments.each do |comment| %>
+        <li class="list-group-item">
+          <a href="/comments/<%= comment.id %>">
+            <%= comment.body %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/comments/<%= comment.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/comments/<%= comment.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_comment/<%= comment.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many votes -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Votes
+      </li>
+
+      <% @user.votes.each do |p_vote| %>
+        <li class="list-group-item">
+          <a href="/p_votes/<%= p_vote.id %>">
+            <%= p_vote.up %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/p_votes/<%= p_vote.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/p_votes/<%= p_vote.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_p_vote/<%= p_vote.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many c_votes -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        C Votes
+      </li>
+
+      <% @user.c_votes.each do |c_vote| %>
+        <li class="list-group-item">
+          <a href="/c_votes/<%= c_vote.id %>">
+            <%= c_vote.up %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/c_votes/<%= c_vote.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/c_votes/<%= c_vote.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_c_vote/<%= c_vote.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many topics -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Topics
+      </li>
+
+      <% @user.topics.each do |topic| %>
+        <li class="list-group-item">
+          <a href="/topics/<%= topic.id %>">
+            <%= topic.name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/topics/<%= topic.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/topics/<%= topic.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_topic/<%= topic.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
