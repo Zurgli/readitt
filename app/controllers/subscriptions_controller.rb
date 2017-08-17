@@ -47,8 +47,6 @@ class SubscriptionsController < ApplicationController
 
   def update
     @subscription = Subscription.find(params[:id])
-
-    @subscription.user_id = params[:user_id]
     @subscription.topic_id = params[:topic_id]
 
     save_status = @subscription.save
