@@ -42,7 +42,7 @@
           Post
         </label>
 
-        <input type="text" id="post_id" name="post_id" placeholder="Post" class="form-control" value="<%= @comment.post_id %>">
+        <%= select_tag(:post_id, options_from_collection_for_select(Post.all, :id, :created_at, @comment.post_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
