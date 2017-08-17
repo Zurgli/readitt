@@ -1,6 +1,9 @@
 class Topic < ApplicationRecord
   # Direct associations
 
+  has_many   :posts,
+             :dependent => :destroy
+
   has_many   :subscriptions,
              :dependent => :destroy
 
