@@ -10,7 +10,7 @@ class CVotesController < ApplicationController
   end
 
   def index
-    @c_votes = CVote.all
+    @c_votes = CVote.page(params[:page]).per(10)
 
     render("c_votes/index.html.erb")
   end

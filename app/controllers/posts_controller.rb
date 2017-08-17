@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page]).per(10)
 
     render("posts/index.html.erb")
   end

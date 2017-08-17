@@ -10,7 +10,7 @@ class PVotesController < ApplicationController
   end
 
   def index
-    @p_votes = PVote.all
+    @p_votes = PVote.page(params[:page]).per(10)
 
     render("p_votes/index.html.erb")
   end
