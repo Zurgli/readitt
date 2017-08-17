@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the C_vote resource:
+  # CREATE
+  get "/c_votes/new", :controller => "c_votes", :action => "new"
+  post "/create_c_vote", :controller => "c_votes", :action => "create"
+
+  # READ
+  get "/c_votes", :controller => "c_votes", :action => "index"
+  get "/c_votes/:id", :controller => "c_votes", :action => "show"
+
+  # UPDATE
+  get "/c_votes/:id/edit", :controller => "c_votes", :action => "edit"
+  post "/update_c_vote/:id", :controller => "c_votes", :action => "update"
+
+  # DELETE
+  get "/delete_c_vote/:id", :controller => "c_votes", :action => "destroy"
+  #------------------------------
+
   # Routes for the P_vote resource:
   # CREATE
   get "/p_votes/new", :controller => "p_votes", :action => "new"
