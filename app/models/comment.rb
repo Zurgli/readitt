@@ -1,6 +1,9 @@
 class Comment < ApplicationRecord
   # Direct associations
 
+  has_many   :c_votes,
+             :dependent => :destroy
+
   belongs_to :post,
              :counter_cache => true
 
