@@ -10,7 +10,8 @@ class CVotesController < ApplicationController
   end
 
   def index
-    @c_votes = CVote.page(params[:page]).per(10)
+    @q = CVote.ransack(params[:q])
+    @c_votes = @q.result(:distinct => true).includes(:user, :comment).page(params[:page]).per(10)
 
     render("c_votes/index.html.erb")
   end

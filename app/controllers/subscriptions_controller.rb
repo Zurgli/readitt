@@ -10,7 +10,8 @@ class SubscriptionsController < ApplicationController
   end
 
   def index
-    @subscriptions = current_user.subscriptions.page(params[:page]).per(10)
+    @q = current_user.subscriptions.ransack(params[:q])
+      @subscriptions = @q.result(:distinct => true).includes(:user, :topic).page(params[:page]).per(10)
 
     render("subscriptions/index.html.erb")
   end

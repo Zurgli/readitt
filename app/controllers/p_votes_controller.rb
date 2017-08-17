@@ -10,7 +10,8 @@ class PVotesController < ApplicationController
   end
 
   def index
-    @p_votes = PVote.page(params[:page]).per(10)
+    @q = PVote.ransack(params[:q])
+    @p_votes = @q.result(:distinct => true).includes(:user, :post).page(params[:page]).per(10)
 
     render("p_votes/index.html.erb")
   end
