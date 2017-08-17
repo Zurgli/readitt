@@ -1,5 +1,7 @@
 ActiveAdmin.register Post do
 
+ permit_params :user_id, :topic_id, :body, :title, :url
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
