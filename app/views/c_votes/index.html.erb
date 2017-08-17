@@ -19,7 +19,7 @@
       <tr>
         <td><%= c_vote.up %></td>
         <td><%= c_vote.user.username %></td>
-        <td><%= c_vote.comment_id %></td>
+        <td><%= c_vote.comment.body %></td>
         <td>
           <a href="/c_votes/<%= c_vote.id %>" class="btn btn-primary">Show</a>
           <a href="/c_votes/<%= c_vote.id %>/edit" class="btn btn-warning">Edit</a>
