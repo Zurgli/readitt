@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @topic.errors.any? %>
+  <% @topic.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Topic #<%= @topic.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_topic/<%= @topic.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @topic.name %>">
+      </div>
+
+      <!-- Label and input for subject -->
+      <div class="form-group">
+        <label for="subject" class="control-label">
+          Subject
+        </label>
+
+        <input type="text" id="subject" name="subject" placeholder="Subject" class="form-control" value="<%= @topic.subject %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Topic
+      </button>
+      or
+      <a href="/topics/<%= @topic.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
