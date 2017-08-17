@@ -1,4 +1,14 @@
 class CVotesController < ApplicationController
+  before_action :current_user_must_be_c_vote_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_c_vote_user
+    c_vote = CVote.find(params[:id])
+
+    unless current_user == c_vote.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @c_votes = CVote.all
 

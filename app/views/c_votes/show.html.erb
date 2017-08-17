@@ -20,12 +20,14 @@
       <a href="/c_votes" class="btn btn-primary">
         Back
       </a>
-      <a href="/c_votes/<%= @c_vote.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_c_vote/<%= @c_vote.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @c_vote.user %>
+        <a href="/c_votes/<%= @c_vote.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_c_vote/<%= @c_vote.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>
