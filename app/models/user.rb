@@ -19,6 +19,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :topics,
+             :through => :subscriptions,
+             :source => :topic
+
   # Validations
 
   validates :username, :uniqueness => true

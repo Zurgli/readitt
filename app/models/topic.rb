@@ -9,6 +9,10 @@ class Topic < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :subscribers,
+             :through => :subscriptions,
+             :source => :user
+
   # Validations
 
   validates :name, :uniqueness => true
