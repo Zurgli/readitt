@@ -5,6 +5,8 @@ class Topic < ApplicationRecord
 
   # Validations
 
+  validates :name, :presence => true
+
   validates :subject, :uniqueness => true
 
   validates :subject, :presence => true
