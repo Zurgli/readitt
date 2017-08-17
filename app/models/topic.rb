@@ -5,4 +5,6 @@ class Topic < ApplicationRecord
 
   # Validations
 
+  validates :subject, :presence => true
+
 end
