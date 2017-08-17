@@ -5,4 +5,6 @@ class PVote < ApplicationRecord
 
   # Validations
 
+  validates :up, :presence => true
+
 end
