@@ -16,6 +16,8 @@ class PostsController < ApplicationController
   end
 
   def show
+    @p_vote = PVote.new
+    @comment = Comment.new
     @post = Post.find(params[:id])
 
     render("posts/show.html.erb")

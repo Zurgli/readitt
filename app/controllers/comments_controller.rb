@@ -16,6 +16,7 @@ class CommentsController < ApplicationController
   end
 
   def show
+    @c_vote = CVote.new
     @comment = Comment.find(params[:id])
 
     render("comments/show.html.erb")

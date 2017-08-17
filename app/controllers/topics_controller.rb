@@ -6,6 +6,8 @@ class TopicsController < ApplicationController
   end
 
   def show
+    @post = Post.new
+    @subscription = Subscription.new
     @topic = Topic.find(params[:id])
 
     render("topics/show.html.erb")

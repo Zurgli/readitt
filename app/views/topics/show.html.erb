@@ -54,6 +54,23 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_subscription" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for topic_id -->
+      <input type="hidden" name="topic_id" value="<%= @topic.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Subscription
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -85,6 +102,50 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_post" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for topic_id -->
+      <input type="hidden" name="topic_id" value="<%= @topic.id %>">
+
+      <!-- Label and input for body -->
+      <div class="form-group">
+        <label for="body" class="control-label">
+          Body
+        </label>
+
+        <textarea id="body" name="body" placeholder="Body" class="form-control" rows="3"></textarea>
+      </div>
+
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <textarea id="title" name="title" placeholder="Title" class="form-control" rows="3"></textarea>
+      </div>
+
+      <!-- Label and input for url -->
+      <div class="form-group">
+        <label for="url" class="control-label">
+          Url
+        </label>
+
+        <input type="text" id="url" name="url" placeholder="Url" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Post
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
