@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Subscription resource:
+  # CREATE
+  get "/subscriptions/new", :controller => "subscriptions", :action => "new"
+  post "/create_subscription", :controller => "subscriptions", :action => "create"
+
+  # READ
+  get "/subscriptions", :controller => "subscriptions", :action => "index"
+  get "/subscriptions/:id", :controller => "subscriptions", :action => "show"
+
+  # UPDATE
+  get "/subscriptions/:id/edit", :controller => "subscriptions", :action => "edit"
+  post "/update_subscription/:id", :controller => "subscriptions", :action => "update"
+
+  # DELETE
+  get "/delete_subscription/:id", :controller => "subscriptions", :action => "destroy"
+  #------------------------------
+
   # Routes for the Topic resource:
   # CREATE
   get "/topics/new", :controller => "topics", :action => "new"
