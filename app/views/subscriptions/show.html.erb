@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>User</dt>
-      <dd><%= @subscription.user_id %></dd>
+      <dd>
+        <% if @subscription.user.present? %>
+          <a href="/users/<%= @subscription.user_id %>">
+            <%= @subscription.user.username %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Topic</dt>
-      <dd><%= @subscription.topic_id %></dd>
+      <dd>
+        <% if @subscription.topic.present? %>
+          <a href="/topics/<%= @subscription.topic_id %>">
+            <%= @subscription.topic.name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

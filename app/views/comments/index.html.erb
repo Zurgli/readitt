@@ -18,8 +18,20 @@
       <% @comments.each do |comment| %>
       <tr>
         <td><%= comment.body %></td>
-        <td><%= comment.user.username %></td>
-        <td><%= comment.post.created_at %></td>
+        <td>
+          <% if comment.user.present? %>
+            <a href="/users/<%= comment.user.id %>">
+              <%= comment.user.username %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if comment.post.present? %>
+            <a href="/posts/<%= comment.post.id %>">
+              <%= comment.post.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/comments/<%= comment.id %>" class="btn btn-primary">Show</a>
           

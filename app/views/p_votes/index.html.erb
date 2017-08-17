@@ -18,8 +18,20 @@
       <% @p_votes.each do |p_vote| %>
       <tr>
         <td><%= p_vote.up %></td>
-        <td><%= p_vote.user.username %></td>
-        <td><%= p_vote.post.created_at %></td>
+        <td>
+          <% if p_vote.user.present? %>
+            <a href="/users/<%= p_vote.user.id %>">
+              <%= p_vote.user.username %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if p_vote.post.present? %>
+            <a href="/posts/<%= p_vote.post.id %>">
+              <%= p_vote.post.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/p_votes/<%= p_vote.id %>" class="btn btn-primary">Show</a>
           

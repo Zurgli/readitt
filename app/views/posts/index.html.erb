@@ -19,8 +19,20 @@
 
       <% @posts.each do |post| %>
       <tr>
-        <td><%= post.user.username %></td>
-        <td><%= post.topic.name %></td>
+        <td>
+          <% if post.user.present? %>
+            <a href="/users/<%= post.user.id %>">
+              <%= post.user.username %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if post.topic.present? %>
+            <a href="/topics/<%= post.topic.id %>">
+              <%= post.topic.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= post.body %></td>
         <td><%= post.title %></td>
         <td><%= post.url %></td>

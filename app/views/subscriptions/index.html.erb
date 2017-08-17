@@ -16,8 +16,20 @@
 
       <% @subscriptions.each do |subscription| %>
       <tr>
-        <td><%= subscription.user.username %></td>
-        <td><%= subscription.topic.name %></td>
+        <td>
+          <% if subscription.user.present? %>
+            <a href="/users/<%= subscription.user.id %>">
+              <%= subscription.user.username %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if subscription.topic.present? %>
+            <a href="/topics/<%= subscription.topic.id %>">
+              <%= subscription.topic.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/subscriptions/<%= subscription.id %>" class="btn btn-primary">Show</a>
           

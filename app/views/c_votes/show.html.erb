@@ -9,10 +9,22 @@
       <dd><%= @c_vote.up %></dd>
 
       <dt>User</dt>
-      <dd><%= @c_vote.user_id %></dd>
+      <dd>
+        <% if @c_vote.user.present? %>
+          <a href="/users/<%= @c_vote.user_id %>">
+            <%= @c_vote.user.username %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Comment</dt>
-      <dd><%= @c_vote.comment_id %></dd>
+      <dd>
+        <% if @c_vote.comment.present? %>
+          <a href="/comments/<%= @c_vote.comment_id %>">
+            <%= @c_vote.comment.body %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

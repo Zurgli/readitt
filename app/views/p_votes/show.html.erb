@@ -9,10 +9,22 @@
       <dd><%= @p_vote.up %></dd>
 
       <dt>User</dt>
-      <dd><%= @p_vote.user_id %></dd>
+      <dd>
+        <% if @p_vote.user.present? %>
+          <a href="/users/<%= @p_vote.user_id %>">
+            <%= @p_vote.user.username %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Post</dt>
-      <dd><%= @p_vote.post_id %></dd>
+      <dd>
+        <% if @p_vote.post.present? %>
+          <a href="/posts/<%= @p_vote.post_id %>">
+            <%= @p_vote.post.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
