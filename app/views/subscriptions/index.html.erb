@@ -17,7 +17,7 @@
       <% @subscriptions.each do |subscription| %>
       <tr>
         <td><%= subscription.user.username %></td>
-        <td><%= subscription.topic_id %></td>
+        <td><%= subscription.topic.name %></td>
         <td>
           <a href="/subscriptions/<%= subscription.id %>" class="btn btn-primary">Show</a>
           <a href="/subscriptions/<%= subscription.id %>/edit" class="btn btn-warning">Edit</a>
