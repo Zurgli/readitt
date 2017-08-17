@@ -26,8 +26,11 @@
         <td><%= post.url %></td>
         <td>
           <a href="/posts/<%= post.id %>" class="btn btn-primary">Show</a>
-          <a href="/posts/<%= post.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_post/<%= post.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == post.user %>
+            <a href="/posts/<%= post.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_post/<%= post.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
