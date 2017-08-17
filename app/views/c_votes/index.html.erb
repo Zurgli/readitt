@@ -18,7 +18,7 @@
       <% @c_votes.each do |c_vote| %>
       <tr>
         <td><%= c_vote.up %></td>
-        <td><%= c_vote.user_id %></td>
+        <td><%= c_vote.user.username %></td>
         <td><%= c_vote.comment_id %></td>
         <td>
           <a href="/c_votes/<%= c_vote.id %>" class="btn btn-primary">Show</a>
