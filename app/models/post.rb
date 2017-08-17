@@ -5,6 +5,8 @@ class Post < ApplicationRecord
 
   # Validations
 
+  validates :body, :presence => true
+
   validates :title, :presence => true
 
 end
