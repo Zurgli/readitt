@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :c_votes,
+             :dependent => :destroy
+
   has_many   :votes,
              :class_name => "PVote",
              :dependent => :destroy
